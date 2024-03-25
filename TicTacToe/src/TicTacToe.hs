@@ -10,8 +10,10 @@ instance Show Tile where
   show O = "O"
   show Empty = " "
 
+-- Represents the current state of the Tic Tac Toe board.
 type Board = [[Tile]]
 
+--Converts the board into a visually formatted string.
 showBoard :: Board -> String
 showBoard xss = unlines
   . surround vtx
@@ -21,6 +23,7 @@ showBoard xss = unlines
     mid = "|"
     vtx = surround '+' $ replicate (length (head xss)) '-'
 
+-- Converts a tile into a player.
 whoWon :: Board -> Maybe Player
 whoWon xss = asum
             . map winner
@@ -34,14 +37,17 @@ whoWon xss = asum
                     then Just (toPlayer x)
                     else Nothing
 
+-- Converts a number into a pair of coordinates.
 getCoords:: Int -> Board -> (Int, Int)
 getCoords n = divMod (n-1) . length
 
+-- Fills a tile on the board at the given position.
 fillTile:: Board -> Int -> Tile -> Board
 fillTile xss n title = nth row (nth col (const title)) xss
   where
     (row, col) = getCoords n xss
 
 
+-- Checks if the game is over.
 isOver:: Board -> Bool
 isOver = all (notElem Empty)

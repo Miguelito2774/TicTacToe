@@ -21,3 +21,25 @@ Some key design decisions include:
 - **Abstraction and Reusability**: Common patterns in the code have been identified and abstracted into reusable functions and data types. This promotes code reuse and facilitates future expansions or modifications of the game.
 
 - **Documentation and Comments**: Detailed documentation in the form of comments has been provided in the code to explain the functionality of functions and modules. This helps quickly understand how each part of the project works.
+
+## Instructions
+
+Make sure you have [GHC (Glasgow Haskell Compiler)](https://www.haskell.org/ghc/) and [Cabal](https://www.haskell.org/cabal/) installed on your system.
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/Miguelito2774/TicTacToe.git
+```
+
+2. Compile the code, run this command in the root directory:
+
+```bash
+cabal build
+```
+
+3. Run the test, this command executes Spec.hs:
+
+```bash
+cabal test
+```
